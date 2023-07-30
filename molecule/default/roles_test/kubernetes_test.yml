@@ -1,0 +1,20 @@
+- name: "Kubernetes test - check kubectl package status"
+  ansible.builtin.package:
+    name: "kubectl"
+    state: "present"
+  check_mode: yes
+  register: kubectl_pkg_status
+- name: "Kubernetes test - assert kubectl package is installed"
+  ansible.builtin.assert:
+    that:
+      - not kubectl_pkg_status.changed
+- name: "Kubernetes test - check minikube package status"
+  ansible.builtin.package:
+    name: "minikube"
+    state: "present"
+  check_mode: yes
+  register: minikube_pkg_status
+- name: "Kubernetes test - assert minikube package is installed"
+  ansible.builtin.assert:
+    that:
+      - not minikube_pkg_status.changed

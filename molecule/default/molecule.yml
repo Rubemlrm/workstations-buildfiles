@@ -1,0 +1,33 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint: |
+  set -e
+  yamllint .
+  ansible-lint
+platforms:
+  - name: instance
+    image: "${MOLECULE_DISTRO}"
+    command: "/usr/sbin/init"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    privileged: true
+    pre_build_image: true
+    cgroupns_mode: host
+    ulimits:
+      - nofile:65535:65535
+provisioner:
+  name: ansible
+  env:
+    ANSIBLE_ROLES_PATH: "../../roles"
+  inventory:
+    host_vars:
+      cdp-arch-ansible:
+        ansible_user: ansible
+    vars:
+      ansible_user: root
+
+verifier:
+  name: ansible

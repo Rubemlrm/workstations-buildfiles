@@ -1,0 +1,8 @@
+---
+nodejs_packages:
+  - nodejs
+  - npm
+
+nodejs_tools:
+  - jshint
+  - webpack

@@ -1,0 +1,70 @@
+username: "test"
+user_group: "test"
+home_dir: "/home/test/"
+# functionalities to enable
+use_firewall: true
+use_openssh: true
+use_docker: false
+use_desktop: false
+use_php: true
+use_python: true
+use_nodejs: true
+use_resolvconf: false
+use_kubernetes: true
+use_fail2ban: true
+
+# packages to install
+common_cli_base_packages:
+  - tmux
+  - zsh
+  - unzip
+  - fontconfig
+  - git
+  - openssl
+  - vim
+  - neovim
+  - neofetch
+
+common_cli_font_packages:
+  - adobe-source-code-pro-fonts
+
+docker_packages:
+  - docker-ce
+  - act-cli
+
+kubernetes_packages:
+  - kubectl
+  - kubectx
+
+kubernetes_helm_plugins:
+  - name: "unittest"
+    repo: https://github.com/quintush/helm-unittest
+
+nodejs_packages:
+  - nodejs
+  - npm
+
+nodejs_tools:
+  - standard
+
+php_packages:
+  - 'php'
+
+php_composer_packages:
+  - 'phpunit/phpunit'
+
+python_pip_packages:
+  - yamllint
+
+user_repo_fonts:
+  - name: hackFont
+    pattern: Hack*Nerd*Font*Complete*
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
+
+users_zsh_plugins:
+  - repo: 'https://github.com/zsh-users/zsh-autosuggestions'
+    dest: "/home/{{ username }}/.config/zsh/plugins/zsh-autosuggestions"
+    version: "v0.7.0"
+  - repo: https://github.com/spaceship-prompt/spaceship-prompt.git
+    dest: "/home/{{ username }}/.config/zsh/themes/spaceship-prompt"
+    version: "v4.13.1"

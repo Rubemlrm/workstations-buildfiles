@@ -1,0 +1,10 @@
+- name: "Nodejs test - check package status"
+  ansible.builtin.package:
+    name: "nodejs"
+    state: "present"
+  check_mode: yes
+  register: pkg_status
+- name: "Nodejs test - assert package is installed"
+  ansible.builtin.assert:
+    that:
+      - not pkg_status.changed

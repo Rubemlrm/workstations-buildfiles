@@ -1,0 +1,34 @@
+---
+- hosts: all
+  name: Setup PC
+  become: true
+  pre_tasks:
+    - name: Load default vars file
+      ansible.builtin.include_vars:
+        dir: "host_vars/"
+        files_matching: all.yml
+  roles:
+    - role: resolvconf
+      when: use_resolvconf
+    - role: pacman
+    - role: cron
+    - cli
+    - role: fail2ban
+      when: use_fail2ban
+    - role: firewall
+      when: use_firewall
+    - role: openssh
+      when: use_openssh
+    - role: docker
+      when: use_docker
+    - role: nodejs
+      when: use_nodejs
+    - role: php
+      when: use_php
+    - role: python
+      when: use_python
+    - role: golang
+    - role: kubernetes
+      when: use_kubernetes
+    - role: desktop
+      when: use_desktop

@@ -1,0 +1,31 @@
+- name: "PHP test - check package status"
+  ansible.builtin.package:
+    name: "php"
+    state: "present"
+  check_mode: yes
+  register: pkg_status
+- name: "PHP test - assert package is installed"
+  ansible.builtin.assert:
+    that:
+      - not pkg_status.changed
+- name: "PHP test - check composer package status"
+  ansible.builtin.file:
+    path: "/usr/local/bin/composer"
+    state: "file"
+  check_mode: yes
+  register: composer_status
+- name: "PHP test - assert composer is installed"
+  ansible.builtin.assert:
+    that:
+      - not composer_status.changed
+- name: "PHP test - check if composer package is installed"
+  community.general.composer:
+    command: require
+    arguments: "phpunit/phpunit @stable"
+    global_command: true
+  check_mode: yes
+  register: composer_package_status
+- name: "PHP test - assert composer package is installed"
+  ansible.builtin.assert:
+    that:
+      - not composer_status.changed

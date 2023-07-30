@@ -1,0 +1,32 @@
+---
+- name: Converge
+  hosts: instance
+  become: true
+  vars_files:
+    - test_data/testing.yml
+  pre_tasks:
+    - name: Setup Archlinux Distro as working distro
+      ansible.builtin.set_fact:
+        distro_file: "archlinux.yml"
+  roles:
+    - role: resolvconf
+      when: use_resolvconf
+    - pacman
+    - cli
+    - role: firewall
+      when: use_firewall
+    - role: openssh
+      when: use_openssh
+    - role: nodejs
+      when: use_nodejs
+    - role: php
+      when: use_php
+    - role: python
+      when: use_python
+    - role: golang
+    - role: docker
+      when: use_docker
+    - role: kubernetes
+      when: use_kubernetes
+    - role: desktop
+      when: use_desktop

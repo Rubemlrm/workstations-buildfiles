@@ -1,0 +1,35 @@
+---
+- name: "Archlinux - Set minikube repo"
+  block:
+    - name: Install cli utils
+      ansible.builtin.package:
+        name: "{{ item }}"
+      with_items: "{{ kubernetes_packages }}"
+    - name: Check if helm is installed
+      ansible.builtin.stat:
+        path: "/usr/local/bin/helm"
+      register: helm_stat_results
+      changed_when: false
+      ignore_errors: true
+    - name: Install helm
+      ansible.builtin.raw: "curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash"
+      when: not helm_stat_results.stat.exists
+      tags:
+        - skip_ansible_lint
+
+- name: Install helm plugins
+  become: true
+  become_user: "{{ username }}"
+  block:
+    - name: Check if helm is installed
+      ansible.builtin.raw: "helm plugin list | grep {{ item.name }}"
+      register: stat_results
+      ignore_errors: true
+      changed_when: false
+      with_items: "{{ kubernetes_helm_plugins }}"
+    - name: Install helm plugins
+      ansible.builtin.command: "helm plugin install {{ item.item.repo }}"
+      with_items: "{{ stat_results.results }}"
+      when: item.stdout == ""
+      tags:
+          - skip_ansible_lint

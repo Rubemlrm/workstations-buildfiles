@@ -1,0 +1,11 @@
+kubernetes_packages:
+  - minikube
+  - kubectl
+  - kubectx
+  - k9s
+
+kubernetes_helm_plugins:
+  - name: "unittest"
+    repo: https://github.com/quintush/helm-unittest
+  - name: "diff"
+    repo:  https://github.com/databus23/helm-diff

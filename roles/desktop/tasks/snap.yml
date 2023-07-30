@@ -1,0 +1,20 @@
+---
+- name: Setup snap
+  block:
+  - name: Install snap
+    ansible.builtin.package:
+      name: 'snapd'
+      state: present
+  - name: 'Fix snap symlink in Archlinux'
+    ansible.builtin.file:
+      src: "/var/lib/snapd/snap"
+      dest: "/snap"
+      state: link
+    notify:
+    - Restart snapd
+  - name: 'Install with snap'
+    community.general.snap:
+      name: "{{ item.name }}"
+      classic: "{{ item.classic }}"
+    with_items: '{{ common_desktop_snap_packages }}'
+    when: common_desktop_snap_packages is defined

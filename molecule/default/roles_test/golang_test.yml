@@ -1,0 +1,24 @@
+---
+- name: "Golang test - check golang package status"
+  ansible.builtin.package:
+    name: "golang"
+    state: "present"
+  check_mode: yes
+  register: go_pkg_status
+  ignore_errors: yes
+  tags:
+    - skip_ansible_lint
+- name: "Golang test - assert golang package is installed"
+  ansible.builtin.assert:
+    that:
+      - go_pkg_status
+- name: "Golang test - check package status"
+  ansible.builtin.file:
+    path: "{{ home_dir }}go/bin/lazygit"
+    state: "file"
+  check_mode: yes
+  register: pkg_status
+- name: "Golang test - assert package is installed"
+  ansible.builtin.assert:
+    that:
+      - not pkg_status.changed

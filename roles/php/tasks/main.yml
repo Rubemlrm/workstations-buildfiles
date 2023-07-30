@@ -1,0 +1,35 @@
+---
+- name: Archlinux - Setup php composer and needed tools
+  block:
+    - name: Install php development tools
+      ansible.builtin.package:
+        name: '{{ item }}'
+        state: present
+      with_items: '{{ php_packages }}'
+    - name: Check if composer is installed
+      ansible.builtin.stat:
+        path: /usr/local/bin/composer
+      register: composer_installed
+      changed_when: false
+    - name: Installing composer
+      ansible.builtin.raw: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+      when: not composer_installed.stat.exists
+      tags:
+        - skip_ansible_lint
+
+- name: Setup composer packages for user
+  become: true
+  become_user: '{{ username }}'
+  community.general.composer:
+    command: require
+    arguments: "{{ item }} @stable"
+    global_command: true
+  with_items: '{{ php_composer_packages }}'
+- name: Update composer packages for user
+  become: true
+  become_user: '{{ username }}'
+  community.general.composer:
+    command: update
+    arguments: "{{ item }} @stable"
+    global_command: true
+  with_items: '{{ php_composer_packages }}'

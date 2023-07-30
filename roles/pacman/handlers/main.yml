@@ -1,0 +1,7 @@
+---
+- name: Enable reflector
+  ansible.builtin.systemd:
+    name: reflector.service
+    enable: true
+    state: started
+  become: true

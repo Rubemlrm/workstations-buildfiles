@@ -1,0 +1,55 @@
+common_desktop_flatpak_packages:
+  - com.spotify.Client
+  - io.github.mimbrero.WhatsAppDesktop
+  - com.slack.Slack
+  - com.getpostman.Postman
+  - com.jgraph.drawio.desktop
+
+common_desktop_snap_packages: {}
+
+common_desktop_packages:
+  - kvantum-qt5
+  - kvantum-theme-materia
+  - plasma-desktop
+  - konsole
+  - ark
+  - gwenview
+  - kde-gtk-config
+  - kdeplasma-addons
+  - ksysguard
+  - powerdevil
+  - spectacle
+  - kio-extras
+  - kcalc
+  - kcron
+  - okular
+  - dolphin
+  - dolphin-plugins
+  - sweeper
+  - kdeconnect
+  - oxygen
+  - plasma-nm
+  - plasma-pa
+  - kate
+  - print-manager
+  - sddm
+  - vlc
+  - bluez
+  - bluedevil
+  - chromium
+  - lutris
+  - libreoffice-fresh
+  - libreoffice-fresh-pt
+  - calibre
+  - firefox-developer-edition
+  - code
+  - discord
+  - partitionmanager
+  - yubikey-manager-qt
+  - dbeaver
+  - bitwarden
+  - inkscape
+  - flatpak
+  - terminator
+  - kwalletmanager
+  - steam

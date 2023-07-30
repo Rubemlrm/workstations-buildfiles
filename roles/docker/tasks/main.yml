@@ -1,0 +1,21 @@
+---
+- name: Archlinux - Pre-Setup Docker service
+  block:
+    - name: Install containers packages
+      ansible.builtin.package:
+        name: '{{ item }}'
+        state: present
+      with_items: "{{ docker_packages }}"
+    - name: 'Just force systemd to reread configs'
+      ansible.builtin.systemd:
+        daemon_reload: yes
+    - name: 'Start docker'
+      ansible.builtin.systemd:
+        name: docker
+        state: started
+        enabled: yes
+    - name: 'Add user to docker group'
+      ansible.builtin.user:
+        name: '{{ username }}'
+        groups: docker
+        append: yes

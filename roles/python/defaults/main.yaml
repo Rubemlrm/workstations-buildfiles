@@ -1,0 +1,17 @@
+python_pip_packages:
+  - cookiecutter
+  - yamllint
+  - virtualenvwrapper
+  - ansible
+  - ansible-lint
+  - Django
+  - bpytop
+  - flake8
+  - tox
+  - pep8
+  - poetry
+  - pre-commit
+  - "molecule-plugins[docker]"
+  - whatportis
+  - pre-commit
+  - passlib

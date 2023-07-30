@@ -1,0 +1,10 @@
+php_packages:
+  - 'php'
+  - 'php-gd'
+  - 'php-fpm'
+
+php_composer_packages:
+  - 'phpunit/phpunit'
+  - 'phing/phing'
+  - 'phploc/phploc'
+  - 'squizlabs/php_codesniffer'

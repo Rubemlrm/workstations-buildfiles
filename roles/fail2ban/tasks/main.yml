@@ -1,0 +1,16 @@
+---
+- name: 'Install fail2ban'
+  ansible.builtin.package:
+    name: fail2ban
+    state: present
+- name: 'Apply sshd config'
+  ansible.builtin.template:
+    src: 'ssh.j2'
+    dest: '/etc/fail2ban/jail.d/ssh.conf'
+    mode: '0644'
+    owner: root
+    group: root
+  when: use_openssh is true
+  notify:
+    - Enable fail2ban server
+    - Restart fail2ban server

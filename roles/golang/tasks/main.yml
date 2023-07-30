@@ -1,0 +1,40 @@
+---
+- name: Archlinux -  Setup golang and needed tools
+  block:
+    - name: Install golang package
+      ansible.builtin.package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - hugo
+        - go
+
+    - name: Check to see if go package exists
+      become: true
+      become_user: '{{ username }}'
+      ansible.builtin.stat:
+        path: "{{ home_dir }}go/bin/{{ item.bin }}"
+      register: stat_results
+      with_items:
+        - bin: lazygit
+          repo: github.com/jesseduffield/lazygit@latest
+        - bin: helm-docs
+          repo: github.com/norwoodj/helm-docs/cmd/helm-docs@latest
+        - bin: golangci-lint
+          repo: github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
+        - bin: goose
+          repo: github.com/pressly/goose/v3/cmd/goose@latest
+        - bin: dlv
+          repo: github.com/go-delve/delve/cmd/dlv@latest
+        - bin: gopls
+          repo: golang.org/x/tools/gopls@latest
+      ignore_errors: true
+
+    - name: Install golang packages
+      become: true
+      become_user: '{{ username }}'
+      ansible.builtin.command: go install {{ item.item.repo }}
+      with_items: "{{ stat_results.results }}"
+      when: not item.stat.exists
+      tags:
+        - skip_ansible_lint

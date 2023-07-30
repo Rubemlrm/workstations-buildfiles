@@ -1,0 +1,22 @@
+---
+- name: Setup Firewall
+  when: use_firewall
+  block:
+    - name: Install cli utils
+      ansible.builtin.package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - firewalld
+    - name: Return service state information as fact data
+      ansible.builtin.service_facts:
+      register: service_facts
+    - name: Start firewall
+      when: service_facts.ansible_facts.services['firewalld.service']['state'] != 'enabled'
+      ansible.builtin.systemd:
+        name: firewalld
+        enabled: yes
+    - name: Set running firewall
+      ansible.builtin.systemd:
+        name: firewalld
+        state: started

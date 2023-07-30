@@ -1,0 +1,10 @@
+---
+- name: Setup python environment
+  block:
+    - name: Install cookicutter python
+      become: true
+      become_user: "{{ username }}"
+      ansible.builtin.pip:
+        name: "{{ item }}"
+        executable: "{{ item.executable | default('pip') }}"
+      with_items: "{{ python_pip_packages }}"
