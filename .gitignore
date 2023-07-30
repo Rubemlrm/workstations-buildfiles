@@ -1,0 +1,66 @@
+/roles/users/files/vim/.vim/plugged
+/roles/users/files/vim/.vim/autoload
+!/roles/user-configs/files/vim/vim/plugged/.gitkeep
+/configs/zsh/configs/development.zsh
+/configs/vim/vim/sessions
+*.retry
+colors/
+sessions/
+collections
+.actr
+.cache
+.vscode
+
+
+#dotfiles
+# Swap
+[._]*.s[a-v][a-z]
+!*.svg  # comment out if you don't need vector files
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+
+#vim folders
+.vim/autoload
+vim/.vim/colors
+.vim/plugged/
+vim/.vim/sessions/
+vim/.vim/bundle/
+Session.vim
+Sessionx.vim
+
+#tmux
+plugins
+
+#zsh
+zsh/.config/zsh/plugins
+zsh/.config/zsh/themes
+host_alias.zsh
+work.zsh
+
+# Temporary
+.netrwhist
+*~
+# Auto-generated tag files
+tags
+# Persistent undo
+[._]*.un~
+*.logs
+vscode
+# autoload ignores for powershell
+work.ps1
+composer*
+scoop*
+settings.json.*
+cache*
+
+kde/.config/kactivitymanagerd-statsrc.lock
+kde/.config/plasma-org.kde.plasma.desktop-appletsrc.lock
+!rofi/.config/rofi/bin
+!bspmw/.config/bspmw/bin
+QtProject.conf
+
+node_modules
+secrets.yaml
