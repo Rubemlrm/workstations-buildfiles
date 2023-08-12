@@ -54,6 +54,10 @@ common_cli_base_packages:
   - make
   - cmake
   - linux-lts
+  - lua-language-server
+  - ansible-language-server
+  - yaml-language-server
+  - lazygit
 
 common_cli_font_packages:
   - adobe-source-code-pro-fonts

@@ -53,3 +53,7 @@ common_desktop_packages:
   - terminator
   - kwalletmanager
   - steam
+  - pcsc-tools
+  - pcsclite
+  - ccid
+  - libnfc

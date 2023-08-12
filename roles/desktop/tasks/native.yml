@@ -15,9 +15,14 @@
 - name: 'Enable sddm'
   ansible.builtin.systemd:
     name: sddm
-    enabled: yes
+    enabled: true
 
 - name: 'Enable bluetooth'
   ansible.builtin.systemd:
     name: bluetooth.service
-    enabled: yes
+    enabled: true
+
+- name: 'Enable pcsd'
+  ansible.builtin.systemd:
+    name: pcscd.service
+    enabled: true
