@@ -57,6 +57,7 @@ common_cli_base_packages:
   - lua-language-server
   - ansible-language-server
   - yaml-language-server
+  - bash-language-server
   - lazygit
 
 common_cli_font_packages:
