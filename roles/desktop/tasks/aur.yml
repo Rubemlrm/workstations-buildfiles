@@ -11,8 +11,6 @@
     use: yay
     name: '{{ item }}'
   with_items:
-    - kvantum-theme-nordic-git
-    - nordic-kde-git
     - visual-studio-code-insiders-bin
     - snapd
     - google-chrome
@@ -23,3 +21,4 @@
     - bfg
     - nerd-fonts-meta
     - yubico-authenticator-bin
+    - pa-applet-git

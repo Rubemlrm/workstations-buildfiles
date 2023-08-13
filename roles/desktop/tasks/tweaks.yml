@@ -1,1 +1,7 @@
 ---
+
+- name: Change lightdm config
+  ansible.builtin.template:
+    src: lightdm-conf.j2
+    dest: /etc/lightdm/lightdm-gtk-greeter.conf
+    mode: 0644

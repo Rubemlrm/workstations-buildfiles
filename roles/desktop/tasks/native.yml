@@ -12,9 +12,9 @@
   with_items: "{{ host_common_desktop_packages }}"
   when: host_common_desktop_packages is defined
 
-- name: 'Enable sddm'
+- name: 'Enable lightdm'
   ansible.builtin.systemd:
-    name: sddm
+    name: lightdm
     enabled: true
 
 - name: 'Enable bluetooth'
@@ -25,4 +25,16 @@
 - name: 'Enable pcsd'
   ansible.builtin.systemd:
     name: pcscd.service
+    enabled: true
+
+
+- name: 'Enable dhcpcd'
+  ansible.builtin.systemd:
+    name: dhcpcd
+    enabled: true
+
+
+- name: 'Enable network manager'
+  ansible.builtin.systemd:
+    name:  NetworkManager
     enabled: true

@@ -8,31 +8,12 @@ common_desktop_flatpak_packages:
 common_desktop_snap_packages: {}
 
 common_desktop_packages:
-  - kvantum-qt5
-  - kvantum-theme-materia
-  - plasma-desktop
-  - konsole
   - ark
   - gwenview
-  - kde-gtk-config
-  - kdeplasma-addons
-  - ksysguard
   - powerdevil
-  - spectacle
-  - kio-extras
-  - kcalc
-  - kcron
   - okular
-  - dolphin
-  - dolphin-plugins
   - sweeper
-  - kdeconnect
-  - oxygen
-  - plasma-nm
-  - plasma-pa
-  - kate
   - print-manager
-  - sddm
   - vlc
   - bluez
   - bluedevil
@@ -45,15 +26,43 @@ common_desktop_packages:
   - code
   - discord
   - partitionmanager
-  - yubikey-manager-qt
   - dbeaver
   - bitwarden
   - inkscape
   - flatpak
-  - terminator
-  - kwalletmanager
   - steam
   - pcsc-tools
   - pcsclite
   - ccid
   - libnfc
+  - i3
+  - polybar
+  - rofi
+  - dunst
+  - flameshot
+  - feh
+  - dhcpcd 
+  - networkmanager 
+  - network-manager-applet
+  - wget 
+  - pulseaudio 
+  - alsa-utils 
+  - alsa-plugins 
+  - pavucontrol 
+  - xdg-user-dirs
+  - bluez 
+  - bluez-utils 
+  - blueman
+  - xorg-server 
+  - xorg-apps 
+  - xorg-xinit
+  - lightdm 
+  - lightdm-gtk-greeter
+  - thunar
+  - thunar-volman
+  - thunar-archive-plugin
+  - gvfs-nfs
+  - gvfs-smb
+  - arc-gtk-theme
+  - lxappearance
+  - papirus-icon-theme
