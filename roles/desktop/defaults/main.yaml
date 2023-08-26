@@ -1,68 +1,105 @@
 common_desktop_flatpak_packages:
+  - com.bitwarden.desktop
   - com.spotify.Client
+  - com.discordapp.Discord
   - io.github.mimbrero.WhatsAppDesktop
   - com.slack.Slack
   - com.getpostman.Postman
   - com.jgraph.drawio.desktop
+  - io.dbeaver.DBeaverCommunity
+  - org.gnome.Extensions
+  - com.yubico.yubioath
 
-common_desktop_snap_packages: {}
+common_desktop_snap_packages:
+  - name: notion-snap
+    classic: false
+
+common_desktop_rpm_repos: {}
+
+common_web_installers:
+  - https://mega.nz/linux/repo/Fedora_38/x86_64/megasync-Fedora_38.x86_64.rpm
+  - https://mega.nz/linux/repo/Fedora_38/x86_64/dolphin-megasync-Fedora_38.x86_64.rpm
 
 common_desktop_packages:
-  - ark
-  - gwenview
-  - powerdevil
-  - okular
-  - sweeper
-  - print-manager
-  - vlc
-  - bluez
-  - bluedevil
-  - chromium
-  - lutris
-  - libreoffice-fresh
-  - libreoffice-fresh-pt
-  - calibre
-  - firefox-developer-edition
-  - code
-  - discord
-  - partitionmanager
-  - dbeaver
-  - bitwarden
-  - inkscape
-  - flatpak
-  - steam
-  - pcsc-tools
-  - pcsclite
-  - ccid
-  - libnfc
-  - i3
-  - polybar
-  - rofi
-  - dunst
-  - flameshot
-  - feh
-  - dhcpcd 
-  - networkmanager 
-  - network-manager-applet
-  - wget 
-  - pulseaudio 
-  - alsa-utils 
-  - alsa-plugins 
-  - pavucontrol 
-  - xdg-user-dirs
-  - bluez 
-  - bluez-utils 
-  - blueman
-  - xorg-server 
-  - xorg-apps 
-  - xorg-xinit
-  - lightdm 
-  - lightdm-gtk-greeter
-  - thunar
-  - thunar-volman
-  - thunar-archive-plugin
-  - gvfs-nfs
-  - gvfs-smb
-  - arc-gtk-theme
-  - lxappearance
-  - papirus-icon-theme
+  - "@admin-tools"
+  - "@base-x"
+  - "@Common NetworkManager Submodules"
+  - "@Fonts"
+  - "@Hardware Support"
+  - "alacritty"
+  - "arandr"
+  - "azote"
+  - "bluedevil"
+  - "blueman"
+  - "breeze-icon-theme"
+  - "brightnessctl"
+  - "cagibi"
+  - "calibre"
+  - "code-insiders"
+  - "cups-pk-helper"
+  - "dex-autostart"
+  - "dunst"
+  - "feh"
+  - "filezilla"
+  - "firefox"
+  - "flameshot"
+  - "flat-remix-icon-theme"
+  - "flatpak"
+  - "gimp"
+  - "glibc-all-langpacks"
+  - "gnome-calculator"
+  - "gnome-font-viewer"
+  - "gnome-keyring-pam"
+  - "i3"
+  - "jq"
+  - "libreoffice-langpack-pt-PT"
+  - "libreoffice"
+  - "lightdm-gtk"
+  - "lightdm"
+  - "lxappearance"
+  - "network-manager-applet"
+  - "NetworkManager"
+  - "Nordzy-icon"
+  - "numix-icon-theme-circle"
+  - "paper-icon-theme"
+  - "papirus-icon-theme"
+  - "pavucontrol"
+  - "polybar"
+  - "powertop"
+  - "pulseaudio-utils"
+  - "redshift"
+  - "rofi"
+  - "slick-greeter"
+  - "sqlite"
+  - "solaar"
+  - "system-config-printer"
+  - "thunar"
+  - "vlc"
+  - "volumeicon"
+  - "wmname"
+  - "xarchiver"
+  - "xbacklight"
+  - "xclip"
+  - "xorg-x11-drv-libinput"
+  - "xprop"
+  - "xsel"
+  - "xset"
+  - "xss-lock"
+  - "gpicview"
+  - "simple-scan"
+  - "evince"
+  - "gucharmap"
+  - "playerctl"
+
+
+common_desktop_themes:
+  - "flat-remix-gtk2-theme"
+  - "flat-remix-gtk3-theme"
+  - "numix-gtk-theme"
+  - "breeze-gtk"
+
+common_desktop_copr_repos:
+  - alvatip/Nordzy-icon
+  - aleasto/waydroid
+  - rubemlrm/betterlockscreen
+  - rubemlrm/i3lock-color

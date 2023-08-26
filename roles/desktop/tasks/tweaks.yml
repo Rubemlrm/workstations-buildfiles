@@ -1,7 +1,43 @@
 ---
-
-- name: Change lightdm config
+- name: Allow non-root user access to NetworkManager
   ansible.builtin.template:
-    src: lightdm-conf.j2
-    dest: /etc/lightdm/lightdm-gtk-greeter.conf
+    src: network_manager_polkit.j2
+    dest: /etc/polkit-1/rules.d/10-network-manager.pkla
     mode: 0644
+- name: Change default target to graphical.target
+  ansible.builtin.file:
+    src: /usr/lib/systemd/system/graphical.target
+    dest: /etc/systemd/system/default.target
+    state: link
+- name: Fix plymouth resolution
+  tags:
+      - skip_ansible_lint
+  block:
+    - name: Check if modprobe nvidia is patched
+      ansible.builtin.stat:
+        path: /etc/modprobe.d/nvidia.conf
+      register: modprobe_nvidia_stat_result
+      changed_when: false
+    - name: Create modprobe nvidia file
+      ansible.builtin.template:
+        src: modprobe_nvidia.j2
+        dest: /etc/modprobe.d/nvidia.conf
+        mode: 0644
+      when: not modprobe_nvidia_stat_result.stat.exists
+    - name: Check if dracut nvidia is patched
+      ansible.builtin.stat:
+        path: /etc/modprobe.d/nvidia.conf
+      changed_when: false
+      register: dracut_nvidia_stat_result
+    - name: Create dracut nvidia file
+      ansible.builtin.template:
+        src: dracut_nvidia.j2
+        dest: /etc/modprobe.d/nvidia.conf
+        mode: 0644
+      when: not dracut_nvidia_stat_result.stat.exists
+    - name: Regenerate dracut
+      ansible.builtin.command: dracut -f
+      when: not dracut_nvidia_stat_result.stat.exists
+      tags:
+        - skip_ansible_lint
+  when: use_nvidia is defined and use_nvidia is true

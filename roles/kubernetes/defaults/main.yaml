@@ -1,5 +1,8 @@
+kubernetes_copr_repos:
+  - "rubemlrm/kubectx"
+  - "luminoso/k9s"
+
 kubernetes_packages:
-  - minikube
   - kubectl
   - kubectx
   - k9s

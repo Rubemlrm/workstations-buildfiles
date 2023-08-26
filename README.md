@@ -13,7 +13,7 @@
 
 ## Works on
 
-![](https://img.shields.io/badge/Archlinux-gray?color=blue&logo=Archlinux&style=for-the-badge)
+![](https://img.shields.io/badge/Fedora_38-gray?color=blue&logo=Fedora&style=for-the-badge)
 
 ## Instructions
 
@@ -25,4 +25,4 @@
 
 ### Run the Playbook
 
-`ansible-playbook setup.yml -i inventory.yml -limit "host" --ask-become-pass`
+`ansible-playbook setup.yml -i inventory.yml --limit "host" --ask-become-pass`

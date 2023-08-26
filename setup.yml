@@ -8,11 +8,9 @@
         dir: "host_vars/"
         files_matching: all.yml
   roles:
-    - role: resolvconf
-      when: use_resolvconf
-    - role: pacman
-    - role: cron
+    - role: dnf
     - cli
+    - users
     - role: fail2ban
       when: use_fail2ban
     - role: firewall

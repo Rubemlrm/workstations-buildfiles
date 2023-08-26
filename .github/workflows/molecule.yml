@@ -2,6 +2,11 @@
 
 name: molecule testing
 
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
@@ -21,9 +26,12 @@ jobs:
       matrix:
         distro:
           [
-            "carlodepieri/docker-archlinux-ansible:latest",
+            "geerlingguy/docker-fedora38-ansible",
           ]
         continueOnError: [false]
+        include:
+          - distro: rubemlrm/fedora-ansible:rawhide
+            continueOnError: true
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v3

@@ -1,5 +1,5 @@
 ---
-- name: Archlinux -  Setup golang and needed tools
+- name: Fedora -  Setup golang and needed tools
   block:
     - name: Install golang package
       ansible.builtin.package:
@@ -7,7 +7,7 @@
         state: present
       with_items:
         - hugo
-        - go
+        - golang
 
     - name: Check to see if go package exists
       become: true
@@ -26,8 +26,6 @@
           repo: github.com/pressly/goose/v3/cmd/goose@latest
         - bin: dlv
           repo: github.com/go-delve/delve/cmd/dlv@latest
-        - bin: gopls
-          repo: golang.org/x/tools/gopls@latest
       ignore_errors: true
 
     - name: Install golang packages

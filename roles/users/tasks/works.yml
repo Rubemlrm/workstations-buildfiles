@@ -1,0 +1,13 @@
+---
+- name: Clone Work Repos
+  become: true
+  become_user: '{{ username }}'
+  tags:
+    - skip_ansible_lint
+  ansible.builtin.git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+    update: true # noqa latest
+    accept_hostkey: true
+  with_items: "{{ users_repos_to_clone }}"
+  when: clone_repos is true

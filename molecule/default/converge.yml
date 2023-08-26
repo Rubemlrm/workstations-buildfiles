@@ -4,15 +4,17 @@
   become: true
   vars_files:
     - test_data/testing.yml
-  pre_tasks:
-    - name: Setup Archlinux Distro as working distro
-      ansible.builtin.set_fact:
-        distro_file: "archlinux.yml"
+  tasks:
+    - name: Update dnf cache
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest # noqa package-latest
+      tags:
+        - skip_ansible_lint
   roles:
-    - role: resolvconf
-      when: use_resolvconf
-    - pacman
+    - dnf
     - cli
+    - users
     - role: firewall
       when: use_firewall
     - role: openssh
