@@ -1,4 +1,25 @@
 ---
+- name: "Setup vscode"
+  ansible.builtin.yum_repository:
+    name: vscode
+    description: vscode repo
+    file: vscode
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+    gpgcheck: yes
+    enabled: yes
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+- name: "Set copr repos"
+  community.general.copr:
+    state: enabled
+    name: "{{ item }}"
+  with_items: "{{ common_desktop_copr_repos }}"
+- name: "Set desktop repos"
+  ansible.builtin.yum_repository:
+    description: "{{ item.description }}"
+    name: "{{ item.name }}"
+    baseurl: "{{ item.url }}"
+    gpgkey: "{{ item.key }}"
+  with_items: "{{ common_desktop_rpm_repos }}"
 - name: Install desktop packages
   ansible.builtin.package:
     name: "{{ item }}"
@@ -11,30 +32,17 @@
     state: present
   with_items: "{{ host_common_desktop_packages }}"
   when: host_common_desktop_packages is defined
-
-- name: 'Enable lightdm'
-  ansible.builtin.systemd:
-    name: lightdm
-    enabled: true
-
-- name: 'Enable bluetooth'
-  ansible.builtin.systemd:
-    name: bluetooth.service
-    enabled: true
-
-- name: 'Enable pcsd'
-  ansible.builtin.systemd:
-    name: pcscd.service
-    enabled: true
-
-
-- name: 'Enable dhcpcd'
-  ansible.builtin.systemd:
-    name: dhcpcd
-    enabled: true
-
-
-- name: 'Enable network manager'
-  ansible.builtin.systemd:
-    name:  NetworkManager
-    enabled: true
+- name: Install mega utils
+  ansible.builtin.yum:
+    name: "{{ item }}"
+    state: present
+    validate_certs: false
+    disable_gpg_check: true
+  with_items: "{{ common_web_installers }}"
+  when: common_web_installers is defined
+- name: Install themes
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ common_desktop_themes }}"
+  when: common_desktop_themes is defined

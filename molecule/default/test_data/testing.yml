@@ -1,6 +1,7 @@
 username: "test"
 user_group: "test"
 home_dir: "/home/test/"
+clone_repos: false
 # functionalities to enable
 use_firewall: true
 use_openssh: true
@@ -12,7 +13,8 @@ use_nodejs: true
 use_resolvconf: false
 use_kubernetes: true
 use_fail2ban: true
-
+restore_dotfiles: false
+ssh_port: 22
 # packages to install
 common_cli_base_packages:
   - tmux
@@ -28,9 +30,18 @@ common_cli_base_packages:
 common_cli_font_packages:
   - adobe-source-code-pro-fonts
 
+dnf_packages_to_purge:
+  - abrt-gui
+
+docker_copr_repos:
+  - "rubemlrm/act-cli"
+
 docker_packages:
   - docker-ce
   - act-cli
+
+kubernetes_copr_repos:
+  - "rubemlrm/kubectx"
 
 kubernetes_packages:
   - kubectl

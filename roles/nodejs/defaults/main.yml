@@ -6,3 +6,4 @@ nodejs_packages:
 nodejs_tools:
   - jshint
   - webpack
+  - eslint

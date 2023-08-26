@@ -1,5 +1,5 @@
 ---
-- name: Archlinux - Setup php composer and needed tools
+- name: Fedora - Setup php composer and needed tools
   block:
     - name: Install php development tools
       ansible.builtin.package:

@@ -1,6 +1,6 @@
 ---
 username: "rubemlrm"
-user_group: "users"
+user_group: "rubemlrm"
 home_dir: "/home/rubemlrm/"
 use_firewall: true
 use_openssh: true
@@ -10,6 +10,5 @@ use_desktop: true
 use_php: true
 use_python: true
 use_nodejs: true
-use_resolvconf: true
 use_kubernetes: true
 ssh_port: 22

@@ -1,0 +1,25 @@
+---
+- name: Setup User
+  block:
+    - name: Ensure group "mock"
+      ansible.builtin.group:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - "mock"
+        - "wheel"
+    - name: Add system user
+      ansible.builtin.user:
+        name: "{{ username }}"
+        shell: "/usr/bin/zsh"
+        groups: "mock,wheel"
+        append: yes
+      no_log: false
+    - name: Created base folders for configs
+      ansible.builtin.file:
+        path: "{{ home_dir }}/{{ item }}"
+        state: directory
+        mode: 0755
+        owner: "{{ username }}"
+        group: "{{ user_group }}"
+      with_items: "{{ users_directories }}"

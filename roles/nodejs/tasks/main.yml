@@ -1,5 +1,5 @@
 ---
-- name: Archlinux - Install nodejs
+- name: Fedora - Install nodejs
   ansible.builtin.package:
     name: "{{ item }}"
     state: present

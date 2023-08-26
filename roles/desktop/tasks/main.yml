@@ -1,8 +1,6 @@
 ---
 - name: Import native installer
   ansible.builtin.import_tasks: native.yml
-- name: Import aur installer
-  ansible.builtin.import_tasks: aur.yml
 - name: Import flatpak installer
   ansible.builtin.import_tasks: flatpak.yml
 - name: Import snap installer

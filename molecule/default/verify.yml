@@ -6,6 +6,8 @@
   vars_files:
     - test_data/testing.yml
   tasks:
+    - name: Import dnf tests
+      ansible.builtin.import_tasks: ./roles_test/dnf_test.yml
     - name: Import common_cli tests
       ansible.builtin.import_tasks: ./roles_test/cli_test.yml
     - name: Import docker tests

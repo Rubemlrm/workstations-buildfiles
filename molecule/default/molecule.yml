@@ -16,16 +16,11 @@ platforms:
     privileged: true
     pre_build_image: true
     cgroupns_mode: host
-    ulimits:
-      - nofile:65535:65535
 provisioner:
   name: ansible
   env:
     ANSIBLE_ROLES_PATH: "../../roles"
   inventory:
-    host_vars:
-      cdp-arch-ansible:
-        ansible_user: ansible
     vars:
       ansible_user: root
 
