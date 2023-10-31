@@ -21,7 +21,7 @@
         - bin: helm-docs
           repo: github.com/norwoodj/helm-docs/cmd/helm-docs@latest
         - bin: golangci-lint
-          repo: github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
+          repo: github.com/golangci/golangci-lint/cmd/golangci-lint@latest
         - bin: goose
           repo: github.com/pressly/goose/v3/cmd/goose@latest
         - bin: dlv
