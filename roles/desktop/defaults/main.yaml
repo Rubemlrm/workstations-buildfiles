@@ -9,6 +9,7 @@ common_desktop_flatpak_packages:
   - io.dbeaver.DBeaverCommunity
   - org.gnome.Extensions
   - com.yubico.yubioath
+  - com.github.iwalton3.jellyfin-media-player
 
 common_desktop_snap_packages:
   - name: notion-snap
