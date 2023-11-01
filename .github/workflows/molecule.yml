@@ -26,7 +26,8 @@ jobs:
       matrix:
         distro:
           [
-            "geerlingguy/docker-fedora38-ansible",
+            "rubemlrm/fedora-ansible:38",
+            "rubemlrm/fedora-ansible:39",
           ]
         continueOnError: [false]
         include:
