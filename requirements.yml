@@ -2,3 +2,5 @@
 collections:
   - name: community.general
   - name: ansible.posix
+roles:
+  - petermosmans.customize-gnome

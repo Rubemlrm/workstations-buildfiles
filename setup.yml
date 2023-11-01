@@ -30,3 +30,5 @@
       when: use_kubernetes
     - role: desktop
       when: use_desktop
+    - role: petermosmans.customize-gnome
+      when: use_desktop
