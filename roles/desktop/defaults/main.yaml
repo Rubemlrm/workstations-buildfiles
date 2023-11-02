@@ -10,9 +10,7 @@ common_desktop_flatpak_packages:
   - org.gnome.Extensions
   - com.yubico.yubioath
 
-common_desktop_snap_packages:
-  - name: notion-snap
-    classic: false
+common_desktop_snap_packages: {}
 
 common_desktop_rpm_repos: {}
 

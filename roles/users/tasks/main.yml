@@ -7,3 +7,5 @@
   ansible.builtin.import_tasks: dotfiles.yml
 - name: Import git repos
   ansible.builtin.import_tasks: works.yml
+- name: Import git setup
+  ansible.builtin.import_tasks: git.yml
