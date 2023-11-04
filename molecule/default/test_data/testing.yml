@@ -15,6 +15,8 @@ use_kubernetes: true
 use_fail2ban: true
 restore_dotfiles: false
 ssh_port: 22
+git_name: testing
+git_email: testing@test.co
 # packages to install
 common_cli_base_packages:
   - tmux
