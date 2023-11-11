@@ -21,11 +21,23 @@
         - bin: helm-docs
           repo: github.com/norwoodj/helm-docs/cmd/helm-docs@latest
         - bin: golangci-lint
-          repo: github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+          repo: github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
         - bin: goose
           repo: github.com/pressly/goose/v3/cmd/goose@latest
         - bin: dlv
           repo: github.com/go-delve/delve/cmd/dlv@latest
+        - bin: staticcheck
+          repo: honnef.co/go/tools/cmd/staticcheck@2022.1
+        - bin: mockery
+          repo: github.com/vektra/mockery/v2@v2.36.1
+        - bin: oapi-codegen
+          repo: github.com/deepmap/oapi-codegen/v2/cmd/oapi-codegen@latest
+        - bin: gopls
+          repo: golang.org/x/tools/gopls@latest
+        - bin: gomodifytags
+          repo: github.com/fatih/gomodifytags@latest
+        - bin: impl
+          repo: github.com/josharian/impl@latest
       ignore_errors: true
 
     - name: Install golang packages
