@@ -7,3 +7,5 @@ nodejs_tools:
   - jshint
   - webpack
   - eslint
+  - standard
+  - yarn
