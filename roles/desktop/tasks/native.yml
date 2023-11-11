@@ -38,8 +38,9 @@
     state: present
     validate_certs: false
     disable_gpg_check: true
-  with_items: "{{ common_web_installers }}"
-  when: common_web_installers is defined
+  with_items:
+  - "https://mega.nz/linux/repo/Fedora_{{ ansible_distribution_major_version }}/x86_64/megasync-Fedora_{{ ansible_distribution_major_version }}.x86_64.rpm"
+  - "https://mega.nz/linux/repo/Fedora_{{ ansible_distribution_major_version }}/x86_64/nautilus-megasync-Fedora_{{ ansible_distribution_major_version }}.x86_64.rpm" 
 - name: Install themes
   ansible.builtin.package:
     name: "{{ item }}"

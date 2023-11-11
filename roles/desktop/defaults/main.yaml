@@ -10,14 +10,11 @@ common_desktop_flatpak_packages:
   - org.gnome.Extensions
   - com.yubico.yubioath
   - com.github.iwalton3.jellyfin-media-player
+  - net.cozic.joplin_desktop
 
 common_desktop_snap_packages: {}
 
 common_desktop_rpm_repos: {}
-
-common_web_installers:
-  - https://mega.nz/linux/repo/Fedora_38/x86_64/megasync-Fedora_38.x86_64.rpm
-  - https://mega.nz/linux/repo/Fedora_38/x86_64/dolphin-megasync-Fedora_38.x86_64.rpm
 
 common_desktop_packages:
   - "@admin-tools"
