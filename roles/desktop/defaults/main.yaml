@@ -64,6 +64,12 @@ common_desktop_packages:
   - "xorg-x11-drv-nvidia-cuda"
   - "akmod-nvidia"
   - "steam"
+  - "rofi"
+  - "picom"
+  - "redshift"
+  - "polybar"
+  - "blueman"
+  - "feh"
 
 
 common_desktop_themes:
