@@ -15,7 +15,7 @@ use_nodejs: true
 use_kubernetes: true
 ssh_port: 22
 use_nvidia: true
-use_gnome: false
+use_gnome: true
 gnome_extensions:
   - id: 517
     enable: yes
