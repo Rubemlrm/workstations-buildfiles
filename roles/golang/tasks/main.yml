@@ -17,9 +17,9 @@
       register: stat_results
       with_items:
         - bin: lazygit
-          repo: github.com/jesseduffield/lazygit@latest
+          repo: github.com/jesseduffield/lazygit@v0.41.0
         - bin: helm-docs
-          repo: github.com/norwoodj/helm-docs/cmd/helm-docs@latest
+          repo: github.com/norwoodj/helm-docs/cmd/helm-docs@v1.13.1
         - bin: golangci-lint
           repo: github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
         - bin: goose
