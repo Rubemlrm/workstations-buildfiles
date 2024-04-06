@@ -7,3 +7,13 @@ help: # Show this help.
 # Lint all files with ansible-lint
 lint:
 	molecule lint
+
+.PHONY: install-deps
+# Install galaxy dependencies
+install-deps:
+	ansible-galaxy install -r requirements.yml
+
+.PHONY: run-playbook
+# Run playbook for workstation
+run-playbook:
+	ansible-playbook setup.yml -i inventory.yml --ask-become-pass --limit "DojoDesktop"
