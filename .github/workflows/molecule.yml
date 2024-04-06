@@ -31,6 +31,8 @@ jobs:
           ]
         continueOnError: [false]
         include:
+          - distro: rubemlrm/fedora-ansible:40
+            continueOnError: true
           - distro: rubemlrm/fedora-ansible:rawhide
             continueOnError: true
     steps:
