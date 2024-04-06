@@ -11,6 +11,7 @@ common_desktop_flatpak_packages:
   - com.yubico.yubioath
   - com.github.iwalton3.jellyfin-media-player
   - net.cozic.joplin_desktop
+  - org.jellyfin.JellyfinServer
 
 common_desktop_snap_packages: {}
 
