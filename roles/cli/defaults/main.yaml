@@ -37,7 +37,6 @@ common_cli_base_packages:
   - libselinux-python3
   - unrar
   - openssl
-  - lazygit
 
 common_cli_font_packages:
   - adobe-source-code-pro-fonts
@@ -45,9 +44,7 @@ common_cli_font_packages:
   - fontawesome-fonts
   - jetbrains-mono-fonts
 
-common_cli_copr_repos:
-  - atim/lazygit
-
+common_cli_copr_repos: []
 
 common_cli_rpm_repos:
   - "http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
