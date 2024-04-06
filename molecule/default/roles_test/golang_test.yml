@@ -14,7 +14,7 @@
       - go_pkg_status
 - name: "Golang test - check package status"
   ansible.builtin.file:
-    path: "{{ home_dir }}go/bin/lazygit"
+    path: "{{ home_dir }}go/bin/mockery"
     state: "file"
   check_mode: yes
   register: pkg_status
