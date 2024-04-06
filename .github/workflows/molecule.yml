@@ -26,11 +26,12 @@ jobs:
       matrix:
         distro:
           [
-            "rubemlrm/fedora-ansible:38",
             "rubemlrm/fedora-ansible:39",
           ]
         continueOnError: [false]
         include:
+          - distro: rubemlrm/fedora-ansible:40
+            continueOnError: true
           - distro: rubemlrm/fedora-ansible:rawhide
             continueOnError: true
     steps:

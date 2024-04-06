@@ -16,10 +16,6 @@
         path: "{{ home_dir }}go/bin/{{ item.bin }}"
       register: stat_results
       with_items:
-        - bin: lazygit
-          repo: github.com/jesseduffield/lazygit@latest
-        - bin: helm-docs
-          repo: github.com/norwoodj/helm-docs/cmd/helm-docs@latest
         - bin: golangci-lint
           repo: github.com/golangci/golangci-lint/cmd/golangci-lint@v1.50.1
         - bin: goose
