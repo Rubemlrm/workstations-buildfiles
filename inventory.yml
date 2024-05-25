@@ -4,3 +4,7 @@ workstations:
       ansible_connection: local
     DojoLaptop:
       ansible_connection: local
+wsl:
+  hosts:
+    DojoWSL:
+      ansible_connection: local
