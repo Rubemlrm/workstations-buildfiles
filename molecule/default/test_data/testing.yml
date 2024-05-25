@@ -28,6 +28,7 @@ common_cli_base_packages:
   - vim
   - neovim
   - neofetch
+  - python3-libdnf5
 
 common_cli_font_packages:
   - adobe-source-code-pro-fonts
