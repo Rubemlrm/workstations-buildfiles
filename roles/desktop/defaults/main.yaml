@@ -24,9 +24,7 @@ common_desktop_packages:
   - "@Fonts"
   - "@Hardware Support"
   - "alacritty"
-  - "arandr"
   - "breeze-icon-theme"
-  - "cagibi"
   - "calibre"
   - "code-insiders"
   - "filezilla"
@@ -50,8 +48,6 @@ common_desktop_packages:
   - "thunar"
   - "vlc"
   - "xarchiver"
-  - "xbacklight"
-  - "xclip"
   - "xorg-x11-drv-libinput"
   - "xprop"
   - "xsel"
@@ -65,12 +61,8 @@ common_desktop_packages:
   - "xorg-x11-drv-nvidia-cuda"
   - "akmod-nvidia"
   - "steam"
-  - "rofi"
-  - "picom"
   - "redshift"
-  - "polybar"
   - "blueman"
-  - "feh"
 
 
 common_desktop_themes:
