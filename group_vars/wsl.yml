@@ -1,0 +1,18 @@
+---
+username: "rubemlrm"
+user_group: "rubemlrm"
+home_dir: "/home/rubemlrm/"
+git_email: rubemmota89@gmail.com
+git_name: "Rubem Mota"
+use_firewall: false
+use_openssh: true
+use_fail2ban: false
+use_docker: false
+use_desktop: false
+use_php: true
+use_python: true
+use_nodejs: true
+use_kubernetes: true
+ssh_port: 22
+use_nvidia: false
+use_gnome: false
