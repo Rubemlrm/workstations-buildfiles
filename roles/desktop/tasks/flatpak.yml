@@ -14,5 +14,5 @@
       name: '{{ item }}'
       state: present
       method: user
-    with_items: '{{ common_desktop_flatpak_packages }}'
-    when: common_desktop_flatpak_packages is defined
+    with_items: '{{ desktop_flatpak_packages }}'
+    when: desktop_flatpak_packages is defined

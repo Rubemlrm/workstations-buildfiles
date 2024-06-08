@@ -16,5 +16,5 @@
     community.general.snap:
       name: "{{ item.name }}"
       classic: "{{ item.classic }}"
-    with_items: '{{ common_desktop_snap_packages }}'
-    when: common_desktop_snap_packages is defined
+    with_items: '{{ desktop_snap_packages }}'
+    when: desktop_snap_packages is defined

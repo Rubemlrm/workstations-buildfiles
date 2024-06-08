@@ -16,7 +16,7 @@
         src: "{{ item.src }}"
         dest: "{{ home_dir }}.fonts/"
         remote_src: yes
-      with_items: "{{ user_repo_fonts }}"
+      with_items: "{{ users_repo_fonts }}"
       register: fonts_changed
       tags:
         - skip_ansible_lint
