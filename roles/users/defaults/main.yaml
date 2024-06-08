@@ -1,7 +1,13 @@
-user_repo_fonts:
+users_repo_fonts:
   - name: hackFont
     pattern: Hack*Nerd*Font*Complete*
     src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
+    extra_opts:
+      - -x
+      - '*.ttf'
+  - name: Fira Code
+    pattern: FiraMono*Nerd*Font*Complete
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraMono.zip
     extra_opts:
       - -x
       - '*.ttf'
@@ -51,6 +57,7 @@ users_directories:
   - "Desktop"
   - "Videos"
   - "Music"
+  - "Games"
   - "Documents"
   - ".config/zsh/plugins"
 

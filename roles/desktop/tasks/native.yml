@@ -12,20 +12,20 @@
   community.general.copr:
     state: enabled
     name: "{{ item }}"
-  with_items: "{{ common_desktop_copr_repos }}"
+  with_items: "{{ desktop_copr_repos }}"
 - name: "Set desktop repos"
   ansible.builtin.yum_repository:
     description: "{{ item.description }}"
     name: "{{ item.name }}"
     baseurl: "{{ item.url }}"
     gpgkey: "{{ item.key }}"
-  with_items: "{{ common_desktop_rpm_repos }}"
+  with_items: "{{ desktop_rpm_repos }}"
 - name: Install desktop packages
   ansible.builtin.package:
     name: "{{ item }}"
     state: present
-  with_items: "{{ common_desktop_packages }}"
-  when: common_desktop_packages is defined
+  with_items: "{{ desktop_packages }}"
+  when: desktop_packages is defined
 - name: Install host specific packages
   ansible.builtin.package:
     name: "{{ item }}"
@@ -43,5 +43,5 @@
   ansible.builtin.package:
     name: "{{ item }}"
     state: present
-  with_items: "{{ common_desktop_themes }}"
-  when: common_desktop_themes is defined
+  with_items: "{{ desktop_themes }}"
+  when: desktop_themes is defined

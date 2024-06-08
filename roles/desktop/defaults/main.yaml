@@ -1,4 +1,4 @@
-common_desktop_flatpak_packages:
+desktop_flatpak_packages:
   - com.bitwarden.desktop
   - com.spotify.Client
   - com.discordapp.Discord
@@ -13,11 +13,13 @@ common_desktop_flatpak_packages:
   - net.cozic.joplin_desktop
   - org.jellyfin.JellyfinServer
 
-common_desktop_snap_packages: {}
+desktop_snap_packages:
+  - name: intellij-idea-ultimate
+    classic: true
 
-common_desktop_rpm_repos: {}
+desktop_rpm_repos: {}
 
-common_desktop_packages:
+desktop_packages:
   - "@admin-tools"
   - "@base-x"
   - "@Common NetworkManager Submodules"
@@ -45,7 +47,6 @@ common_desktop_packages:
   - "powertop"
   - "sqlite"
   - "solaar"
-  - "thunar"
   - "vlc"
   - "xarchiver"
   - "xorg-x11-drv-libinput"
@@ -62,16 +63,16 @@ common_desktop_packages:
   - "akmod-nvidia"
   - "steam"
   - "redshift"
-  - "blueman"
+  - "ulauncher"
 
 
-common_desktop_themes:
+desktop_themes:
   - "flat-remix-gtk2-theme"
   - "flat-remix-gtk3-theme"
   - "numix-gtk-theme"
   - "breeze-gtk"
 
-common_desktop_copr_repos:
+desktop_copr_repos:
   - alvatip/Nordzy-icon
   - aleasto/waydroid
   - rubemlrm/betterlockscreen
