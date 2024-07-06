@@ -63,7 +63,7 @@ desktop_packages:
   - "akmod-nvidia"
   - "steam"
   - "redshift"
-  - "ulauncher"
+  - "gnome-tweaks"
 
 
 desktop_themes:
