@@ -31,9 +31,6 @@ gnome_extensions:
     enable: yes
   - id: 3843 # just-perfection-desktop
     enable: yes
-  - id: 5090 # space bar
-    enable: yes
-
 
 gnome_user: "{{ username }}"
 gnome_dconf:
@@ -143,50 +140,6 @@ gnome_gsettings:
     schemadir: ~/.local/share/gnome-shell/extensions/just-perfection-desktop\@just-perfection/schemas
     key: workspace-popup
     value: "false"
-  # space bar
-  - schema: org.gnome.shell.extensions.space-bar.behavior
-    schemadir: ~/.local/share/gnome-shell/extensions/space-bar\@luchrioh/schemas/
-    key: smart-workspace-names
-    value: "false"
-  - schema: org.gnome.shell.extensions.space-bar.shortcuts
-    schemadir: ~/.local/share/gnome-shell/extensions/space-bar\@luchrioh/schemas/
-    key: enable-activate-workspace-shortcuts
-    value: "false"
-  - schema: org.gnome.shell.extensions.space-bar.shortcuts
-    schemadir: ~/.local/share/gnome-shell/extensions/space-bar\@luchrioh/schemas/
-    key: enable-move-to-workspace-shortcuts
-    value: "true"
-  - schema: org.gnome.shell.extensions.space-bar.shortcuts
-    schemadir: ~/.local/share/gnome-shell/extensions/space-bar\@luchrioh/schemas/
-    key: open-menu
-    value: "\"@as []\""
-
-  # configure tactile
-  - schema: org.gnome.shell.extensions.tactile
-    schemadir: ~/.local/share/gnome-shell/extensions/space-bar\@luchrioh/schemas/
-    key: col-0
-    value: "1"
-  - schema: org.gnome.shell.extensions.tactile
-    schemadir: ~/.local/share/gnome-shell/extensions/space-bar\@luchrioh/schemas/
-    key: col-1
-    value: "2"
-  - schema: org.gnome.shell.extensions.tactile
-    schemadir: ~/.local/share/gnome-shell/extensions/space-bar\@luchrioh/schemas/
-    key: col-2
-    value: "1"
-  - schema: org.gnome.shell.extensions.tactile
-    schemadir: ~/.local/share/gnome-shell/extensions/space-bar\@luchrioh/schemas/
-    key: col-3
-    value: "0"
-  - schema: org.gnome.shell.extensions.tactile
-    schemadir: ~/.local/share/gnome-shell/extensions/space-bar\@luchrioh/schemas/
-    key: row-0
-    value: "1"
-  - schema: org.gnome.shell.extensions.tactile
-    schemadir: ~/.local/share/gnome-shell/extensions/space-bar\@luchrioh/schemas/
-    key: row-1
-    value: "1"
-
   # use alt for app quick open
   - schema: org.gnome.shell.keybindings
     key: switch-to-application-1
@@ -228,17 +181,3 @@ gnome_gsettings:
   - schema: org.gnome.desktop.wm.keybindings
     key: switch-to-workspace-4
     value:  "\"['<Super>4']\""
-
-  # ulauncher
-  - schema: org.gnome.desktop.wm.keybindings
-    key: switch-input-source
-    value: "\"@as []\""
-  - schema: org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/
-    key: name
-    value: "ulauncher-toggle"
-  - schema: org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/
-    key: command
-    value: 'ulauncher-toggle'
-  - schema: org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/
-    key: binding
-    value: '<Super>space'
