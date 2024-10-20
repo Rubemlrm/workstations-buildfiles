@@ -8,7 +8,7 @@
         dir: "host_vars/"
         files_matching: all.yml
   roles:
-    - role: dnf
+    - role: pacman
     - cli
     - users
     - role: fail2ban

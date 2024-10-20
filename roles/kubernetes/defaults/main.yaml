@@ -1,11 +1,8 @@
-kubernetes_copr_repos:
-  - "rubemlrm/kubectx"
-  - "luminoso/k9s"
-
 kubernetes_packages:
   - kubectl
-  - kubectx
+  - minikube
   - k9s
+  - kubectx
 
 kubernetes_helm_plugins:
   - name: "unittest"

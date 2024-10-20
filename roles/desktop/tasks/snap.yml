@@ -2,10 +2,12 @@
 - name: Setup snap
   block:
   - name: Install snap
-    ansible.builtin.package:
+    become: true
+    become_user: '{{ username }}'
+    kewlfft.aur.aur:
+      use: yay
       name: 'snapd'
-      state: present
-  - name: 'Fix snap symlink in fedora'
+  - name: 'Fix snap symlink'
     ansible.builtin.file:
       src: "/var/lib/snapd/snap"
       dest: "/snap"

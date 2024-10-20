@@ -1,5 +1,5 @@
 ---
-- name: Fedora - Install nodejs
+- name: Install nodejs
   ansible.builtin.package:
     name: "{{ item }}"
     state: present

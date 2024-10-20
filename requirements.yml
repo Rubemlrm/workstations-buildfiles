@@ -2,5 +2,6 @@
 collections:
   - name: community.general
   - name: ansible.posix
+  - name: kewlfft.aur
 roles:
   - petermosmans.customize-gnome

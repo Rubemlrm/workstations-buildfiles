@@ -7,4 +7,5 @@
       ansible.builtin.pip:
         name: "{{ item }}"
         executable: "{{ item.executable | default('pip3') }}"
+        extra_args: "--break-system-packages"
       with_items: "{{ python_pip_packages }}"

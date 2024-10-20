@@ -8,6 +8,6 @@ galaxy_info:
   license: MIT
   min_ansible_version: "2.10"
   platforms:
-    - name: Fedora
+    - name: Archlinux
   galaxy_tags:
     - workstation

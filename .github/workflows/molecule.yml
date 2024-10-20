@@ -26,14 +26,9 @@ jobs:
       matrix:
         distro:
           [
-            "rubemlrm/fedora-ansible:39",
+            "buluma/docker-molecule-images:archlinux",
           ]
         continueOnError: [false]
-        include:
-          - distro: rubemlrm/fedora-ansible:40
-            continueOnError: true
-          - distro: rubemlrm/fedora-ansible:rawhide
-            continueOnError: true
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v3

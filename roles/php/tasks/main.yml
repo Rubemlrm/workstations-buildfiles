@@ -1,11 +1,19 @@
 ---
-- name: Fedora - Setup php composer and needed tools
+- name: Setup php composer and needed tools
   block:
     - name: Install php development tools
       ansible.builtin.package:
         name: '{{ item }}'
         state: present
       with_items: '{{ php_packages }}'
+    - name: Install php aur packages
+      kewlfft.aur.aur:
+        name: '{{ item }}'
+        use: yay
+        state: present
+      become: true
+      become_user: '{{ username }}'
+      with_items: '{{ aur_php_extra_packages }}'
     - name: Check if composer is installed
       ansible.builtin.stat:
         path: /usr/local/bin/composer

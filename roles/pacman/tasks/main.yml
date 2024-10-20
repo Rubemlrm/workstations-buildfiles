@@ -1,0 +1,46 @@
+---
+- name: Setup Pacman
+  block:
+    - name: update cache
+      pacman:
+        update_cache: yes
+    - name: install pacman tools
+      package:
+        name: '{{ item }}'
+        state: present
+      with_items:
+        - pacman-contrib
+        - base-devel
+        - cronie
+    - name: Copy Custom pacman.conf
+      ansible.builtin.template:
+        src: pacman.conf.j2
+        dest: /etc/pacman.conf
+        mode: '0644'
+        owner: 'root'
+        group: 'root'
+    - name: upgrade system
+      pacman:
+        upgrade: true
+        update_cache: true
+    - name: Clone Yay repo
+      become: true
+      become_user: '{{ username }}'
+      git:
+        repo: https://aur.archlinux.org/yay.git
+        dest: '{{ home_dir }}/.bin/yay'
+      tags:
+        - skip_ansible_lint
+    - name: Check Yay Existance
+      shell: command -v yay >/dev/null 2>&1
+      register: yay_exists
+      ignore_errors: yes
+      changed_when: false
+    - name: Compile Yay
+      command:
+        chdir: "{{ home_dir }}/.bin/yay"
+        cmd: "makepkg -sfi --noconfirm"
+        creates: /usr/bin/yay
+      when: yay_exists
+      become: true
+      become_user: '{{ username }}'
