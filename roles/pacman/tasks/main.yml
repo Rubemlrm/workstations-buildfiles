@@ -12,6 +12,7 @@
         - pacman-contrib
         - base-devel
         - cronie
+        - reflector
     - name: Copy Custom pacman.conf
       ansible.builtin.template:
         src: pacman.conf.j2
@@ -19,6 +20,20 @@
         mode: '0644'
         owner: 'root'
         group: 'root'
+    - name: Update reflector configuration file
+      ansible.builtin.template:
+        src: reflector.conf.j2
+        dest: /etc/xdg/reflector/reflector.conf
+        mode: 0644
+      become: true
+
+    - name: Start systemd service - systemd-boot-update.service
+      ansible.builtin.systemd:
+        name: systemd-boot-update.service
+        state: started
+        enabled: yes
+      become: true
+
     - name: upgrade system
       pacman:
         upgrade: true

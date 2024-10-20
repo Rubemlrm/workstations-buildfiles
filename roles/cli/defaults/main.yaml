@@ -44,7 +44,6 @@ common_cli_base_packages:
   - ripgrep
   - lazygit
   - python-pre-commit
-  -
 
 common_cli_font_packages:
   - adobe-source-code-pro-fonts

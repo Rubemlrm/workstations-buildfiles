@@ -26,7 +26,7 @@ jobs:
       matrix:
         distro:
           [
-            "buluma/docker-molecule-images:archlinux",
+            "carlodepieri/docker-archlinux-ansible",
           ]
         continueOnError: [false]
     steps:

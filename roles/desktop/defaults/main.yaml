@@ -13,9 +13,7 @@ desktop_flatpak_packages:
   - net.cozic.joplin_desktop
   - org.jellyfin.JellyfinServer
 
-desktop_snap_packages:
-  - name: intellij-idea-ultimate
-    classic: true
+desktop_snap_packages: {}
 
 desktop_rpm_repos: {}
 
@@ -62,6 +60,7 @@ desktop_packages:
   - nvidia
   - alacritty
   - networkmanager
+  - bluez-utils
 
 
 

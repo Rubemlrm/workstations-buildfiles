@@ -4,3 +4,16 @@
     name: snapd
     state: restarted
   become: true
+
+- name: Enable sddm
+  ansible.builtin.systemd:
+    name: sddm
+    state: enabled
+  become: true
+
+- name: Start bluetooth.service
+  ansible.builtin.systemd:
+    name: bluetooth.service
+    state: started
+    enabled: yes
+  become: true
