@@ -1,6 +1,3 @@
-docker_copr_repos:
-  - "rubemlrm/act-cli"
-
 docker_packages:
   - docker-ce
   - docker-ce-cli

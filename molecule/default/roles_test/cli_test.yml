@@ -2,7 +2,7 @@
   ansible.builtin.package:
     name: "tmux"
     state: "present"
-  check_mode: yes
+  check_mode: true
   register: pkg_status
 - name: "Common cli test - package is installed"
   ansible.builtin.assert:

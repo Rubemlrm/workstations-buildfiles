@@ -8,6 +8,12 @@ help: # Show this help.
 lint:
 	molecule lint
 
+
+.PHONY: run-molecule
+# Run molecule tests
+run-molecule:
+	MOLECULE_DISTRO=carlodepieri/docker-archlinux-ansible molecule test
+
 .PHONY: install-deps
 # Install galaxy dependencies
 install-deps:

@@ -28,27 +28,18 @@ common_cli_base_packages:
   - vim
   - neovim
   - neofetch
-  - python3-libdnf5
 
 common_cli_font_packages:
   - adobe-source-code-pro-fonts
-
-dnf_packages_to_purge:
-  - abrt-gui
-
-docker_copr_repos:
-  - "rubemlrm/act-cli"
 
 docker_packages:
   - docker-ce
   - act-cli
 
-kubernetes_copr_repos:
-  - "rubemlrm/kubectx"
-
 kubernetes_packages:
   - kubectl
   - kubectx
+  - minikube
 
 kubernetes_helm_plugins:
   - name: "unittest"

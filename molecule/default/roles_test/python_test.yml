@@ -1,8 +1,8 @@
 - name: "Python test - check if pip package is installed"
   ansible.builtin.package:
-    name: "python3-pip"
+    name: "python"
     state: "present"
-  check_mode: yes
+  check_mode: true
   register: pip_package_status
 - name: "Python test - assert pip package is installed"
   ansible.builtin.assert:

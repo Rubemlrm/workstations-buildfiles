@@ -1,54 +1,69 @@
 ---
 common_cli_base_packages:
-  - "@C Development Tools and Libraries"
-  - acpi
-  - aspell
-  - aspell-pt
-  - automake
-  - cmake
-  - ctags
-  - gcc-c++
-  - gcc
-  - git
-  - python-devel
-  - python3-devel
-  - ruby
-  - tmux
-  - util-linux-user
   - vim
-  - nano
-  - zsh
-  - numlockx
-  - wget
-  - lm_sensors
+  - git
+  - tmux
+  - base-devel
+  - binutils
+  - make
+  - gcc
+  - fakeroot
+  - powerline
+  - powerline-vim
+  - powerline-fonts
   - screenfetch
-  - python3-devel
-  - python3-pip
-  - libcurl-devel
+  - scrot
+  - rxvt-unicode
+  - bashtop
+  - nano
+  - wget
+  - curl
+  - rsync
+  - shellcheck
+  - intel-ucode
+  - ufw
+  - linux-headers
+  - netctl
+  - wpa_supplicant
+  - dotnet-runtime
+  - dotnet-sdk
+  - netctl
+  - openvpn
+  - cronie
   - stow
-  - ripgrep
   - neovim
-  - neofetch
-  - bat
-  - fedora-packager
-  - fedora-review
-  - "@rpm-development-tools"
-  - toolbox
-  - libselinux-python3
-  - unrar
-  - openssl
+  - mkinitcpio
+  - lvm2
+  - vi
+  - dhcpcd
+  - os-prober
+  - zsh
+  - python-pip
+  - gnome-keyring
+  - libsecret
+  - ripgrep
   - lazygit
-  - python3-libdnf5
+  - python-pre-commit
+  - hunspell
+  - hunspell-en_US
+  - smartmontools
+  - usbutils
+  - acpid
+  - acpi
+  - powertop
 
 common_cli_font_packages:
   - adobe-source-code-pro-fonts
-  - mozilla-fira-*
-  - fontawesome-fonts
-  - jetbrains-mono-fonts
-
-common_cli_copr_repos:
-  - atim/lazygit
-
-common_cli_rpm_repos:
-  - "http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
-  - "http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm"
+  - ttf-fira-code
+  - ttf-hack
+  - ttf-fira-sans
+  - ttf-font-awesome
+  - otf-font-awesome
+  - ttf-jetbrains-mono
+  - terminus-font
+  - noto-fonts
+  - ttf-dejavu
+  - ttf-liberation
+  - ttf-droid
+  - ttf-ubuntu-font-family
+  - nerd-fonts

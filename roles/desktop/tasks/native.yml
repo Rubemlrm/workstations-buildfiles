@@ -1,44 +1,14 @@
 ---
-- name: "Setup vscode"
-  ansible.builtin.yum_repository:
-    name: vscode
-    description: vscode repo
-    file: vscode
-    baseurl: https://packages.microsoft.com/yumrepos/vscode
-    gpgcheck: yes
-    enabled: yes
-    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
-- name: "Set copr repos"
-  community.general.copr:
-    state: enabled
-    name: "{{ item }}"
-  with_items: "{{ desktop_copr_repos }}"
-- name: "Set desktop repos"
-  ansible.builtin.yum_repository:
-    description: "{{ item.description }}"
-    name: "{{ item.name }}"
-    baseurl: "{{ item.url }}"
-    gpgkey: "{{ item.key }}"
-  with_items: "{{ desktop_rpm_repos }}"
 - name: Install desktop packages
   ansible.builtin.package:
     name: "{{ item }}"
     state: present
   with_items: "{{ desktop_packages }}"
   when: desktop_packages is defined
-- name: Install host specific packages
-  ansible.builtin.package:
-    name: "{{ item }}"
-    state: present
-  with_items: "{{ host_common_desktop_packages }}"
-  when: host_common_desktop_packages is defined
-- name: Install mega utils
-  ansible.builtin.yum:
-    name: "{{ item }}"
-    state: present
-    validate_certs: false
-    disable_gpg_check: true
-  with_items: {}
+  notify:
+    - Enable sddm
+    - Start bluetooth.service
+    - Start Network Manager
 - name: Install themes
   ansible.builtin.package:
     name: "{{ item }}"

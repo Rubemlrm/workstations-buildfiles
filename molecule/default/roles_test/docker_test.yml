@@ -2,7 +2,7 @@
   ansible.builtin.package:
     name: "docker-ce"
     state: "present"
-  check_mode: yes
+  check_mode: true
   register: pkg_status
 - name: "Docker test - assert package is installed"
   ansible.builtin.assert:
@@ -12,8 +12,8 @@
   ansible.builtin.systemd:
     name: docker
     state: started
-    enabled: yes
-  check_mode: yes
+    enabled: true
+  check_mode: true
   register: service_status
 - name: "Docker test - assert service is started"
   ansible.builtin.assert:
@@ -23,8 +23,8 @@
   ansible.builtin.user:
     name: '{{ username }}'
     groups: docker
-    append: yes
-  check_mode: yes
+    append: true
+  check_mode: true
   register: user_in_group_status
 - name: "Docker test - assert if user is on docker group"
   ansible.builtin.assert:

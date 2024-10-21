@@ -1,0 +1,13 @@
+- name: install aur packages
+  become: true
+  become_user: '{{ username }}'
+  kewlfft.aur.aur:
+    use: yay
+    name: '{{ item }}'
+  with_items:
+    - kvantum-theme-nordic-git
+    - nordic-kde-git
+    - visual-studio-code-insiders-bin
+    - google-chrome
+    - materia-kde-git
+    - moe-kde-git

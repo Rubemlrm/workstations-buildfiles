@@ -6,14 +6,13 @@
         name: "{{ item }}"
         state: present
       with_items:
-        - "mock"
         - "wheel"
     - name: Add system user
       ansible.builtin.user:
         name: "{{ username }}"
         shell: "/usr/bin/zsh"
-        groups: "mock,wheel"
-        append: yes
+        groups: "wheel"
+        append: true
       no_log: false
     - name: Created base folders for configs
       ansible.builtin.file:

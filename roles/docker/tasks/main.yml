@@ -1,41 +1,20 @@
 ---
-- name: Fedora - Pre-Setup Docker service
+- name: Archlinux Based - Pre-Setup Docker service
   block:
-    - name: Fedora - Check if docker repo is enabled
-      ansible.builtin.command: dnf search docker-ce
-      changed_when: false
-      register: docker_repo_exists
-      tags:
-        - skip_ansible_lint
-    - name: Fedora - Add docker repo
-      ansible.builtin.command: dnf config-manager \
-        --add-repo \
-        https://download.docker.com/linux/fedora/docker-ce.repo
-      when: docker_repo_exists.stdout_lines is defined and
-            (docker_repo_exists.stdout_lines | length == 0)
-      tags:
-        - skip_ansible_lint
-    - name: "Set copr repos"
-      community.general.copr:
-        state: enabled
-        name: "{{ item }}"
-      with_items:
-        - "{{ docker_copr_repos }}"
     - name: Install containers packages
       ansible.builtin.package:
-        name: '{{ item }}'
+        name: "{{ item }}"
         state: present
-      with_items: "{{ docker_packages }}"
-    - name: 'Just force systemd to reread configs'
-      ansible.builtin.systemd:
-        daemon_reload: yes
+      with_items:
+        - docker
+        - docker-compose
     - name: 'Start docker'
       ansible.builtin.systemd:
         name: docker
         state: started
-        enabled: yes
+        enabled: true
     - name: 'Add user to docker group'
       ansible.builtin.user:
         name: '{{ username }}'
         groups: docker
-        append: yes
+        append: true

@@ -8,4 +8,5 @@
   ansible.builtin.systemd:
     name: fail2ban
     state: started
+    enabled: true
   become: true

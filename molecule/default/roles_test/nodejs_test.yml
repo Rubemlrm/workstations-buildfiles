@@ -2,7 +2,7 @@
   ansible.builtin.package:
     name: "nodejs"
     state: "present"
-  check_mode: yes
+  check_mode: true
   register: pkg_status
 - name: "Nodejs test - assert package is installed"
   ansible.builtin.assert:

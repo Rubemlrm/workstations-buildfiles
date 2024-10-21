@@ -1,18 +1,17 @@
 ---
-- name: Install openssh
+- name: Install samba
   ansible.builtin.package:
-    name: 'openssh'
+    name: 'samba'
     state: present
 - name: Copy ssh custom configs
   ansible.builtin.template:
     src: '{{ item.origin_name }}'
-    dest: /etc/ssh/{{ item.file_name }}
+    dest: "/etc/samba/{{ item.file_name }}"
     mode: 0644
   with_items:
-    - origin_name: ssh_config.j2
-      file_name: ssh_config
-    - origin_name: sshd_config.j2
-      file_name: sshd_config
+    - origin_name: smb.conf.j2
+      file_name: smb.conf
+
 - name: Setup selinux for custom ssh port
   community.general.seport:
     ports: '{{ ssh_port }}'
@@ -21,24 +20,26 @@
     state: 'present'
   when: ansible_selinux is defined and ansible_selinux is not false and ansible_selinux.status == 'enabled'
 
-- name: Start sshd
+- name: Start Samba services
   ansible.builtin.systemd:
-    name: sshd
+    name: "{{ item }}"
     state: started
     enabled: true
+  with_items:
+    - smb.service
+    - nmb.service
   become: true
 
 
-- name: Tweak SSH rules on firewall
+- name: Tweak samba rules on firewall
   when: use_firewall is true
   block:
-    - name: Remove old firewall rule
+    - name: Add samba service firewall rule
       ansible.posix.firewalld:
-        service: ssh
-        permanent: true
-        state: disabled
-    - name: Enable firewall rule
-      ansible.posix.firewalld:
-        port: '{{ ssh_port }}/tcp'
+        service: "{{ item }}"
         permanent: true
         state: enabled
+      with_items:
+        - samba
+        - samba-client
+        - samba-dc

@@ -1,5 +1,5 @@
 ---
-- name: Fedora -  Setup golang and needed tools
+- name: Setup golang and needed tools
   block:
     - name: Install golang package
       ansible.builtin.package:
@@ -7,7 +7,7 @@
         state: present
       with_items:
         - hugo
-        - golang
+        - go
 
     - name: Check to see if go package exists
       become: true

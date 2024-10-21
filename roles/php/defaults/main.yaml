@@ -2,15 +2,14 @@ php_packages:
   - 'php'
   - 'php-gd'
   - 'php-fpm'
-  - 'php-common'
-  - 'php-json'
-  - 'php-mysqlnd'
-  - 'php-zip'
-  - 'php-mbstring'
-  - 'php-xml'
 
 php_composer_packages:
   - 'phpunit/phpunit'
   - 'phing/phing'
   - 'phploc/phploc'
   - 'squizlabs/php_codesniffer'
+
+
+php_extra_packages: {}
+
+aur_php_extra_packages: {}
