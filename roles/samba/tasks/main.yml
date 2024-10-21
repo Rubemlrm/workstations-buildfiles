@@ -34,7 +34,7 @@
 - name: Tweak samba rules on firewall
   when: use_firewall is true
   block:
-    - name: Remove old firewall rule
+    - name: Add samba service firewall rule
       ansible.posix.firewalld:
         service: "{{ item }}"
         permanent: true
