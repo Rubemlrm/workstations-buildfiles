@@ -3,17 +3,25 @@
   ansible.builtin.systemd:
     name: snapd
     state: restarted
+    enabled: true
   become: true
 
 - name: Enable sddm
   ansible.builtin.systemd:
     name: sddm
-    state: enabled
+    state: started
+    enabled: true
   become: true
 
 - name: Start bluetooth.service
   ansible.builtin.systemd:
     name: bluetooth.service
     state: started
-    enabled: yes
+    enabled: true
+  become: true
+- name: Start Network Manager
+  ansible.builtin.systemd:
+    name: NetworkManager.service
+    state: started
+    enabled: true
   become: true

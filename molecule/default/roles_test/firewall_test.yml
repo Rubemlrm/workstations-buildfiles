@@ -2,7 +2,7 @@
   ansible.builtin.package:
     name: "firewalld"
     state: "present"
-  check_mode: yes
+  check_mode: true
   register: pkg_status
 - name: "Firewall test - assert package is installed"
   ansible.builtin.assert:
@@ -11,8 +11,8 @@
 - name: "Firewall test - check service status"
   ansible.builtin.systemd:
     name: firewalld
-    enabled: yes
-  check_mode: yes
+    enabled: true
+  check_mode: true
   register: service_status
 - name: "Firewall test - assert service is started"
   ansible.builtin.assert:

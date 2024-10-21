@@ -2,7 +2,7 @@
   ansible.builtin.package:
     name: "php"
     state: "present"
-  check_mode: yes
+  check_mode: true
   register: pkg_status
 - name: "PHP test - assert package is installed"
   ansible.builtin.assert:
@@ -12,7 +12,7 @@
   ansible.builtin.file:
     path: "/usr/local/bin/composer"
     state: "file"
-  check_mode: yes
+  check_mode: true
   register: composer_status
 - name: "PHP test - assert composer is installed"
   ansible.builtin.assert:
@@ -23,7 +23,7 @@
     command: require
     arguments: "phpunit/phpunit @stable"
     global_command: true
-  check_mode: yes
+  check_mode: true
   register: composer_package_status
 - name: "PHP test - assert composer package is installed"
   ansible.builtin.assert:

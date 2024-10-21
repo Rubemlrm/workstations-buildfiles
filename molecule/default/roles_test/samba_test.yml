@@ -1,0 +1,10 @@
+- name: "Samba test - check if samba package is installed"
+  ansible.builtin.package:
+    name: "samba"
+    state: "present"
+  check_mode: true
+  register: samba_package_status
+- name: "Samba test - assert samba package is installed"
+  ansible.builtin.assert:
+    that:
+      - not samba_package_status.changed

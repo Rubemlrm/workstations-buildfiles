@@ -44,6 +44,13 @@ common_cli_base_packages:
   - ripgrep
   - lazygit
   - python-pre-commit
+  - hunspell
+  - hunspell-en_US
+  - smartmontools
+  - usbutils
+  - acpid
+  - acpi
+  - powertop
 
 common_cli_font_packages:
   - adobe-source-code-pro-fonts
@@ -51,5 +58,12 @@ common_cli_font_packages:
   - ttf-hack
   - ttf-fira-sans
   - ttf-font-awesome
+  - otf-font-awesome
   - ttf-jetbrains-mono
+  - terminus-font
   - noto-fonts
+  - ttf-dejavu
+  - ttf-liberation
+  - ttf-droid
+  - ttf-ubuntu-font-family
+  - nerd-fonts

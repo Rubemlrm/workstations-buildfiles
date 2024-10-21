@@ -1,11 +1,21 @@
 ---
 - name: Setup Pacman
   block:
-    - name: update cache
-      pacman:
-        update_cache: yes
+    - name: Check if package exists
+      ansible.builtin.package:
+        name: "tmux"
+        state: "present"
+      check_mode: true
+      register: pkg_status
+
+    - name: Update Cache
+      community.general.pacman:
+        update_cache: true
+      when: pkg_status.changed
+      changed_when: false
+
     - name: install pacman tools
-      package:
+      ansible.builtin.package:
         name: '{{ item }}'
         state: present
       with_items:
@@ -13,6 +23,8 @@
         - base-devel
         - cronie
         - reflector
+        - git
+        - make
     - name: Copy Custom pacman.conf
       ansible.builtin.template:
         src: pacman.conf.j2
@@ -25,16 +37,18 @@
         src: reflector.conf.j2
         dest: /etc/xdg/reflector/reflector.conf
         mode: 0644
-      become: true
-
+    - name: Allow the user to run `sudo pacman` without a password
+      ansible.builtin.lineinfile:
+        path: /etc/sudoers.d/11-install-aur_builder
+        line: '{{ username }} ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+        create: true
+        validate: 'visudo -cf %s'
     - name: Start systemd service - systemd-boot-update.service
       ansible.builtin.systemd:
         name: systemd-boot-update.service
         state: started
-        enabled: yes
-      become: true
-
-    - name: upgrade system
+        enabled: true
+    - name: Upgrade system
       pacman:
         upgrade: true
         update_cache: true
@@ -49,7 +63,7 @@
     - name: Check Yay Existance
       shell: command -v yay >/dev/null 2>&1
       register: yay_exists
-      ignore_errors: yes
+      ignore_errors: true
       changed_when: false
     - name: Compile Yay
       command:

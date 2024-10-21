@@ -4,19 +4,13 @@
   become: true
   vars_files:
     - test_data/testing.yml
-  tasks:
-    - name: Update dnf cache
-      ansible.builtin.dnf:
-        name: "*"
-        state: latest # noqa package-latest
-      tags:
-        - skip_ansible_lint
   roles:
+    - users
     - pacman
     - cli
-    - users
     - role: firewall
       when: use_firewall
+    - role: samba
     - role: openssh
       when: use_openssh
     - role: nodejs

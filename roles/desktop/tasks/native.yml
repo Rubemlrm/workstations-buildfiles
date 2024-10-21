@@ -8,6 +8,7 @@
   notify:
     - Enable sddm
     - Start bluetooth.service
+    - Start Network Manager
 - name: Install themes
   ansible.builtin.package:
     name: "{{ item }}"

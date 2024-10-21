@@ -19,6 +19,8 @@
       when: use_openssh
     - role: docker
       when: use_docker
+    - role: samba
+      when: use_samba
     - role: nodejs
       when: use_nodejs
     - role: php
@@ -30,5 +32,3 @@
       when: use_kubernetes
     - role: desktop
       when: use_desktop
-    - role: petermosmans.customize-gnome
-      when: use_gnome

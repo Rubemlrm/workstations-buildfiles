@@ -3,9 +3,9 @@
   ansible.builtin.package:
     name: "golang"
     state: "present"
-  check_mode: yes
+  check_mode: true
   register: go_pkg_status
-  ignore_errors: yes
+  ignore_errors: true
   tags:
     - skip_ansible_lint
 - name: "Golang test - assert golang package is installed"
@@ -16,7 +16,7 @@
   ansible.builtin.file:
     path: "{{ home_dir }}go/bin/mockery"
     state: "file"
-  check_mode: yes
+  check_mode: true
   register: pkg_status
 - name: "Golang test - assert package is installed"
   ansible.builtin.assert:
