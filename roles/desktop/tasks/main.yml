@@ -6,6 +6,6 @@
 - name: Import snap installer
   ansible.builtin.import_tasks: snap.yml
 - name: Import Aur
-  import_tasks: aur.yml
+  ansible.builtin.import_tasks: aur.yml
 - name: Import Tweaks
   ansible.builtin.import_tasks: tweaks.yml

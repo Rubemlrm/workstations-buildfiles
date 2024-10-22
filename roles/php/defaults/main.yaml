@@ -9,7 +9,6 @@ php_composer_packages:
   - 'phploc/phploc'
   - 'squizlabs/php_codesniffer'
 
-
 php_extra_packages: {}
 
-aur_php_extra_packages: {}
+php_aur_extra_packages: {}
