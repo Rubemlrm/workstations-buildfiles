@@ -26,5 +26,7 @@ jobs:
         run: pip3 install yamllint ansible-lint
       - name: Lint yaml
         run: yamllint .
+      - name: Install dependencies (collections)
+        run: ansible-galaxy install -r requirements.yml
       - name: Lint ansible-lint
         run: ansible-lint
