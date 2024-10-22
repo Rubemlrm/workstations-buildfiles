@@ -10,5 +10,3 @@
         files_matching: all.yml
   roles:
     - users
-    - role: petermosmans.customize-gnome
-      when: use_gnome
