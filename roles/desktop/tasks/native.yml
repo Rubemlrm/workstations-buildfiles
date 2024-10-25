@@ -5,10 +5,6 @@
     state: present
   with_items: "{{ desktop_packages }}"
   when: desktop_packages is defined
-  notify:
-    - Enable sddm
-    - Start bluetooth.service
-    - Start Network Manager
 - name: Install themes
   ansible.builtin.package:
     name: "{{ item }}"
