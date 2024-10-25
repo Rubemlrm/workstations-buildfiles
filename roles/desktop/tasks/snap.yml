@@ -12,8 +12,14 @@
       src: "/var/lib/snapd/snap"
       dest: "/snap"
       state: link
-    notify:
-    - Restart snapd
+
+  - name: Restart snapd
+    ansible.builtin.systemd:
+      name: snapd
+      state: restarted
+      enabled: true
+    become: true
+
   - name: 'Install with snap'
     community.general.snap:
       name: "{{ item.name }}"
