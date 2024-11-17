@@ -1,6 +1,6 @@
 ---
-- hosts: all
-  name: Setup PC
+- name: Setup PC
+  hosts: all
   become: true
   pre_tasks:
     - name: Load default vars file
@@ -8,9 +8,9 @@
         dir: "host_vars/"
         files_matching: all.yml
   roles:
+    - role: users
     - role: pacman
-    - cli
-    - users
+    - role: cli
     - role: fail2ban
       when: use_fail2ban
     - role: firewall

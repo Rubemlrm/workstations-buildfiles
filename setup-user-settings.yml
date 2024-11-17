@@ -1,6 +1,7 @@
 ---
-- hosts: all
-  name: Setup PC
+
+- name: Setup PC
+  hosts: all
   become: true
   pre_tasks:
     - name: Load default vars file
@@ -9,5 +10,3 @@
         files_matching: all.yml
   roles:
     - users
-    - role: petermosmans.customize-gnome
-      when: use_gnome

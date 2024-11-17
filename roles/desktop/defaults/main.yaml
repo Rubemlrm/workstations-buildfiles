@@ -11,11 +11,9 @@ desktop_flatpak_packages:
   - com.yubico.yubioath
   - com.github.iwalton3.jellyfin-media-player
   - net.cozic.joplin_desktop
-  - org.jellyfin.JellyfinServer
 
 desktop_snap_packages: {}
 
-desktop_rpm_repos: {}
 
 desktop_packages:
   - chromium
@@ -62,6 +60,11 @@ desktop_packages:
   - alacritty
   - networkmanager
   - bluez-utils
+  - flatpak 
+  - kscreen
+  - kwallet
+  - kwalletmanager
+  - kwallet-pam
 
 
 
