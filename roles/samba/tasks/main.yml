@@ -12,6 +12,19 @@
     - origin_name: smb.conf.j2
       file_name: smb.conf
 
+- name: Ensure group "sambashare" exists
+  ansible.builtin.group:
+    name: sambashare
+    state: present
+
+- name: Created base folders for configs
+  ansible.builtin.file:
+    path: "/var/lib/samba/usershares"
+    state: directory
+    mode: 01770
+    owner: "root"
+    group: "sambashare"
+
 - name: Setup selinux for custom ssh port
   community.general.seport:
     ports: '{{ ssh_port }}'

@@ -65,6 +65,7 @@ desktop_packages:
   - kwallet
   - kwalletmanager
   - kwallet-pam
+  - kdenetwork-filesharing
 
 
 
