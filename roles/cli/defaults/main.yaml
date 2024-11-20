@@ -53,6 +53,8 @@ cli_base_packages:
   - powertop
   - linux-lts
   - cmake
+  - ntfs-3g
+  - dosfstools
 
 cli_font_packages:
   - adobe-source-code-pro-fonts

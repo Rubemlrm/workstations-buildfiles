@@ -55,8 +55,6 @@ desktop_packages:
   - bluez
   - bluedevil
   - pipewire-pulse
-  - nvidia-open
-  - lib32-nvidia-utils
   - alacritty
   - networkmanager
   - bluez-utils
@@ -65,8 +63,16 @@ desktop_packages:
   - kwallet
   - kwalletmanager
   - kwallet-pam
-
-
+  - kdenetwork-filesharing
+  - kio-admin
+  - nvidia-open 
+  - nvidia-utils 
+  - lib32-nvidia-utils 
+  - nvidia-settings 
+  - opencl-nvidia
+  - p7zip
+  - fuse-exfat
+  - flac
 
 desktop_themes:
   - "breeze-gtk"
